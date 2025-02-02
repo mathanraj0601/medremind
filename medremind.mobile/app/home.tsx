@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Animated } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useThemeColor } from '@/hooks/useThemeColor'
 import { Ionicons } from '@expo/vector-icons'
@@ -9,10 +9,17 @@ import { QUICK_ACTIONS } from '@/constants/home/constant'
 import QuickAction from '@/components/ui/QuickAction'
 import NoMedication from '@/components/ui/NoMedication'
 import Medication from '@/components/ui/Medication'
+import NotificationModal from '@/components/modals/NotificationModal'
 
 export default function Home() {
     const colors = useThemeColor()
     const count = 1000;
+
+    const [showNotification , setShowNotification] = useState(false);
+    const openNotification = () => setShowNotification(true);
+    const closeNotification = () => setShowNotification(false);
+
+
 
     return (
         <ScrollView showsVerticalScrollIndicator={false} style={[styles.homeContainer, { backgroundColor: colors.containerBg }]}>
@@ -23,7 +30,7 @@ export default function Home() {
                     <Text style={[styles.dailyActiontext, { color: colors.white }]}>
                         {text.dailyAction}
                     </Text>
-                    <TouchableOpacity style={[styles.notificationBtn, { backgroundColor: colors.logoDarkShade }]}>
+                    <TouchableOpacity style={[styles.notificationBtn, { backgroundColor: colors.logoDarkShade }]} onPress={openNotification}>
                         <Ionicons name='notifications-outline' size={24} color={colors.white} >
                         </Ionicons>
                         <View style={[styles.notificationBadge, { backgroundColor: colors.red, borderColor: colors.notiGreen }]}>
@@ -74,6 +81,7 @@ export default function Home() {
                 }
             </View>
 
+        <NotificationModal showNotification={showNotification} closeNotificationModal={closeNotification} medications={[{ dose :'one', name:"ed" , time :'900'}]} />
         </ScrollView>
     )
 }

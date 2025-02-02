@@ -35,7 +35,6 @@ const Medication = ({ dose, handletaken, name, taken, time, color }: MedicationP
                     </Text>
                 </TouchableOpacity>
             }
-
         </View>
     )
 }

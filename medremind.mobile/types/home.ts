@@ -20,3 +20,15 @@ interface MedicationProps {
     handletaken : (id:string) => void,
     color:string
 }
+
+interface NotificationModal {
+    showNotification : boolean,
+    closeNotificationModal : ()=>void
+    medications :  NotificationMedicationProps[]
+}
+
+interface NotificationMedicationProps{
+    name: string,
+    time: any,
+    dose: string,
+}

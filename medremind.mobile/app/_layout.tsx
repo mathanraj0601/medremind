@@ -17,6 +17,12 @@ const _layout = () => {
           headerShown: false
         }}>
         </Stack.Screen>
+        <Stack.Screen name='medications/add' options={{
+          headerShown: false,
+          headerTitle : "",
+          title :""
+        }}>
+        </Stack.Screen>
       </Stack>
     </React.Fragment>
   )
