@@ -26,6 +26,7 @@ export const Colors = {
    takenGreenOverlay: "#E8F5E9",
    lightGrey: "#666",
    darkGrey: "#333",
+   overlayBlack : "rgba(0, 0, 0, 0.5)"
 
   },
   dark: {
@@ -48,6 +49,8 @@ export const Colors = {
     takenGreenOverlay: "#E8F5E9",
     lightGrey: "#666",
     darkGrey: "#333",
+   overlayBlack : "rgba(0, 0, 0, 0.5)"
+
  
   },
 };
