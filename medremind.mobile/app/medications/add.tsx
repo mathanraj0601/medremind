@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { ScrollView } from 'react-native'
 import { useThemeColor } from '@/hooks/useThemeColor'
 import { Ionicons } from '@expo/vector-icons'
+import { useRouter } from 'expo-router'
 
 
 const AddMedication = () => {
@@ -14,13 +15,14 @@ const AddMedication = () => {
     })
 
     const [error, setError] = useState<{ [key: string]: string }>({})
+    const router = useRouter()
 
     return (
         <View style={[styles.container, { backgroundColor: colors.containerBg }]}>
             <LinearGradient style={styles.linearGradient} colors={["#1a8e2d", "#146922"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} />
             <View style={styles.content}>
                 <View style={styles.header}>
-                    <TouchableOpacity style={[styles.back, { backgroundColor: colors.white }]}>
+                    <TouchableOpacity style={[styles.back, { backgroundColor: colors.white }]} onPress={router.back}>
                         <Ionicons name='chevron-back-outline' size={28} color={colors.backBtn} />
                     </TouchableOpacity>
                     <Text style={[styles.addMedicationText, { color: colors.white }]}>Add Medications</Text>
