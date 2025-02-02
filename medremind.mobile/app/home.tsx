@@ -53,7 +53,6 @@ export default function Home() {
             </View>
 
             {/* medication */}
-
             <View style={styles.medicationContainer}>
                 <View style={styles.medicationHeader}>
                     <Text style={[styles.medicationText, { color: colors.black }]}>
@@ -65,10 +64,10 @@ export default function Home() {
                 </View>
                 {[{ dose : '900g', time:'9:00', name :'Paracetamoil', color : '#004400'}].length === 0 ?
                     <NoMedication /> :
-                    <View style={styles.medicationContainer}>
+                    <View style={styles.medicationsContainer}>
                        { [{ dose : '900g', time:'9:00', name :'Paracetamoil', color : '#004400'}, { dose : '900g', time:'9:00', name :'Psaracetamoil', color : '#004400'}].map((item)=>(
 
-                           <Medication color={item.color} dose={item.dose} time={item.time} taken={true} handletaken={()=>{}} name={item.name} key={item.name} />
+                           <Medication color={item.color} dose={item.dose} time={item.time} taken={false} handletaken={()=>{}} name={item.name} key={item.name} />
                        ))}
                     </View>
 
@@ -135,7 +134,10 @@ const styles = StyleSheet.create({
         gap: 10,
         marginTop: 10
     },
-    medicationContainer: {
+    medicationContainer : {
+
+    },
+    medicationsContainer: {
       gap : 10,
       paddingVertical : 10
     },
