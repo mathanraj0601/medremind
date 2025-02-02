@@ -15,6 +15,18 @@ export const Colors = {
     black : '#000',
     danger : '#f44336',
     dangerBg : '#ffebee',
+    red : '#FF5252',
+    notiGreen : '#146922',
+    qcGreen : '#2E7D32',
+    qcBlue : '#1976D2',
+    qcRed : '#C2185B',
+    qcOrange : '#E64A19',
+    containerBg: "#f8f9fa",
+   takenGreen : "#4CAF50",
+   takenGreenOverlay: "#E8F5E9",
+   lightGrey: "#666",
+   darkGrey: "#333",
+
   },
   dark: {
     text: '#ECEDEE',
@@ -25,5 +37,18 @@ export const Colors = {
     black : '#000',
     danger : '#f44336',
     dangerBg : '#ffebee',
+    red : '#FF5252',
+    notiGreen : '#146922',
+    qcGreen : '#2E7D32',
+    qcBlue : '#1976D2',
+    qcRed : '#C2185B',
+    qcOrange : '#E64A19',
+    containerBg: "#f8f9fa",
+    takenGreen : "#4CAF50",
+    takenGreenOverlay: "#E8F5E9",
+    lightGrey: "#666",
+    darkGrey: "#333",
+ 
   },
 };
+

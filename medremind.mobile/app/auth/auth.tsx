@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { Ionicons } from '@expo/vector-icons'
 import { useThemeColor } from '@/hooks/useThemeColor'
 import * as LocalAuth from 'expo-local-authentication'
-import {  useRouter } from 'expo-router'
+import { useRouter } from 'expo-router'
 
 const { width } = Dimensions.get('window');
 
@@ -19,8 +19,6 @@ export default function Auth() {
     const checkBioMetrics = async () => {
         const hasBioMetrics = await LocalAuth.hasHardwareAsync();
         const isEnrolled = await LocalAuth.isEnrolledAsync();
-
-        console.log(hasBioMetrics, isEnrolled)
         setHasBioMetrics(hasBioMetrics && isEnrolled)
     }
 
@@ -31,23 +29,23 @@ export default function Auth() {
             setIsAuthenticating(true)
 
             const hasHardWare = await LocalAuth.hasHardwareAsync();
-            const supportTypes  = await LocalAuth.supportedAuthenticationTypesAsync();
+            const supportTypes = await LocalAuth.supportedAuthenticationTypesAsync();
             const hasBioMetrics = await LocalAuth.isEnrolledAsync();
 
             const auth = await LocalAuth.authenticateAsync({
-                promptMessage : hasHardWare && hasBioMetrics ? text.bioMetrics : text.pin,
+                promptMessage: hasHardWare && hasBioMetrics ? text.bioMetrics : text.pin,
                 fallbackLabel: "Use pin",
-                cancelLabel : 'Cancel',
-                disableDeviceFallback : false
+                cancelLabel: 'Cancel',
+                disableDeviceFallback: false
             })
 
-            if(auth.success){
-               router.replace('/splashScreen/splashscreen')
+            if (auth.success) {
+                router.replace('/home')
             }
-            else{
+            else {
                 setError(text.errorAuthAgain)
             }
-           
+
         }
         catch (err) {
             setError(text.errorTryAgain)
@@ -109,7 +107,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     subtitle: {
-        fontSize: 16
+        fontSize: 16,
+        fontWeight: 'semibold'
     },
     pinContainer: {
         alignItems: 'center',
@@ -125,7 +124,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     pinText: {
-        fontSize: 12
+        fontSize: 12,
+         fontWeight: 'semibold'
     },
     pinBtnContainer: {
         display: 'flex',
@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
     },
     errorText: {
         fontSize: 14,
+         fontWeight: 'semibold'
     },
 })
 
